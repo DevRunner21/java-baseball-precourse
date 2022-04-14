@@ -1,5 +1,6 @@
 package baseball.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
@@ -20,6 +21,19 @@ class BallTest {
                 () -> assertThatThrownBy(() -> new Ball(new BallNumber(1), INVALID_POSITION))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void math_메서드는_BallNumber와_position이_모두_같다면_Strike를_반환합니다() {
+        BallNumber ballNumber = new BallNumber(1);
+        int position = 0;
+        Ball computerBall = new Ball(ballNumber, position);
+        Ball myBall = new Ball(ballNumber, position);
+        GameResult expected = GameResult.STRIKE;
+
+        GameResult result = computerBall.match(myBall);
+
+        assertThat(result).isEqualTo(expected);
     }
 
 }

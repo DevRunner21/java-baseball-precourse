@@ -13,7 +13,7 @@
   - [x] 1 ~ 9까지의 숫자가 아니라면 IllegalArgumentException를 던진다.
   - [x] 서로 다른 숫자가 아니라면 IllegalArgumentException를 던진다.
 - [ ] 두가지를 비교해서 결과를 계산한다.
-    - [ ] 숫자와 위치가 모두 같으면? → 1 Strike
+    - [x] 숫자와 위치가 모두 같으면? → 1 Strike
     - [ ] 숫자와 위치 중 하나만 같다면? → 1 Ball
     - [ ] 숫자와 위치 모두 다르다면? → Nothing
 - [ ] 결과에 따라 다음 프로세스를 진행한다.
