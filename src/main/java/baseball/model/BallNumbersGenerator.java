@@ -5,21 +5,23 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class BallNumbersGenerator {
 
     public static final int BALL_COUNT = 3;
 
     public List<BallNumber> generateRandomBallNumbers() {
-        List<Integer> pickedNumbers = Randoms
-                .pickUniqueNumbersInRange(BallNumber.MIN_BALL_NUMBER, BallNumber.MAX_BALL_NUMBER, BALL_COUNT);
-
-        List<BallNumber> ballNumbers = new ArrayList<>();
-        for (Integer pickedNumber : pickedNumbers) {
-            ballNumbers.add(new BallNumber(pickedNumber));
+        Set<Integer> nonDupPickedNumbers = new HashSet<>();
+        while (nonDupPickedNumbers.size() < BALL_COUNT) {
+            int pickedNumber = Randoms.pickNumberInRange(
+                    BallNumber.MIN_BALL_NUMBER,
+                    BallNumber.MAX_BALL_NUMBER
+            );
+            nonDupPickedNumbers.add(pickedNumber);
         }
 
-        return ballNumbers;
+        return convertToBallNumberList(nonDupPickedNumbers);
     }
 
     public List<BallNumber> generateRandomBallNumbers(List<Integer> numbers) {
@@ -27,6 +29,17 @@ public class BallNumbersGenerator {
 
         List<BallNumber> ballNumbers = new ArrayList<>();
         for (Integer pickedNumber : numbers) {
+            ballNumbers.add(new BallNumber(pickedNumber));
+        }
+
+        return ballNumbers;
+    }
+
+    private List<BallNumber> convertToBallNumberList(Set<Integer> nonDupPickedNumbers) {
+        List<Integer> pickedNumbers = new ArrayList<>(nonDupPickedNumbers);
+        List<BallNumber> ballNumbers = new ArrayList<>();
+
+        for (Integer pickedNumber : pickedNumbers) {
             ballNumbers.add(new BallNumber(pickedNumber));
         }
 

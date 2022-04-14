@@ -3,9 +3,11 @@ package baseball.model;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,14 +24,20 @@ class BallNumbersGeneratorTest {
     }
 
     @Test
-    void generateRandomBallNumbers_메서드는_BALL_COUNT_만큼의_서로_다른_BallCount_목록을_반환합니다() {
+    void generateRandomBallNumbers_메서드는_BALL_COUNT_만큼의_서로_다른_Ball_목록을_반환합니다() {
         List<BallNumber> generatedBallNumbers = ballNumbersGenerator.generateRandomBallNumbers();
 
         assertThat(generatedBallNumbers.size()).isEqualTo(BallNumbersGenerator.BALL_COUNT);
+        assertTrue(isAllArgUnique(generatedBallNumbers));
+    }
+
+    private boolean isAllArgUnique(List<BallNumber> ballNumbers) {
+        HashSet<BallNumber> nonDupBallNumbers = new HashSet<>(ballNumbers);
+        return nonDupBallNumbers.size() == ballNumbers.size();
     }
 
     @Test
-    void generateRandomBallNumbers_메서드는_입력값에_대한_BallCount_목록을_반환합니다() {
+    void generateRandomBallNumbers_메서드는_입력값에_대한_Ball_목록을_반환합니다() {
         List<Integer> inputNumbers = Arrays.asList(1, 2, 3);
         List<BallNumber> expected = Arrays.asList(
                 new BallNumber(1),
