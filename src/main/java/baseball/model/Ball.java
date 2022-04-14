@@ -37,7 +37,7 @@ public class Ball {
             return GameResult.NOTHING;
         }
 
-        return null;
+        return GameResult.BALL;
     }
 
     private boolean isDiffBallNumber(BallNumber ballNumber) {

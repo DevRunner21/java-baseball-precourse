@@ -47,4 +47,16 @@ class BallTest {
         assertThat(result).isEqualTo(expected);
     }
 
+    @Test
+    void math_메서드는_BallNumber가_같고_position이_다르다면_BALL을_반환합니다() {
+        BallNumber ballNumber = new BallNumber(1);
+        Ball computerBall = new Ball(ballNumber, 0);
+        Ball myBall = new Ball(ballNumber, 1);
+        GameResult expected = GameResult.BALL;
+
+        GameResult result = computerBall.match(myBall);
+
+        assertThat(result).isEqualTo(expected);
+    }
+
 }
