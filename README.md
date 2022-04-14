@@ -10,7 +10,7 @@
 - [ ] 1 ~ 9까지의 서로 다른 숫자를 3개 생성한다.
 - [ ] 3자리 숫자를 입력 입력한다.(UI)
 - [ ] 입력한 숫자가 1 ~ 9 까지의  서로 다른 3자리 숫자가 아니라면 IllegalArgumentException를 던진다.
-  - [ ] 1 ~ 9까지의 숫자가 아니라면 IllegalArgumentException를 던진다.
+  - [x] 1 ~ 9까지의 숫자가 아니라면 IllegalArgumentException를 던진다.
   - [ ] 서로 다른 숫자가 아니라면 IllegalArgumentException를 던진다.
 - [ ] 두가지를 비교해서 결과를 계산한다.
     - [ ] 숫자와 위치가 모두 같으면? → 1 Strike
