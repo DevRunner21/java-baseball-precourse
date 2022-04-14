@@ -33,7 +33,19 @@ public class Ball {
             return GameResult.STRIKE;
         }
 
+        if (ball.isDiffBallNumber(this.ballNumber) && ball.isDiffPosition(this.position)) {
+            return GameResult.NOTHING;
+        }
+
         return null;
+    }
+
+    private boolean isDiffBallNumber(BallNumber ballNumber) {
+        return this.ballNumber != ballNumber;
+    }
+
+    private boolean isDiffPosition(int position) {
+        return this.position != position;
     }
 
     @Override
