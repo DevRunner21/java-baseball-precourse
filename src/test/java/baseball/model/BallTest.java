@@ -24,7 +24,7 @@ class BallTest {
     }
 
     @Test
-    void math_메서드는_BallNumber와_position이_모두_같다면_Strike를_반환합니다() {
+    void match_메서드는_BallNumber와_position이_모두_같다면_STRIKE를_반환합니다() {
         BallNumber ballNumber = new BallNumber(1);
         int position = 0;
         Ball computerBall = new Ball(ballNumber, position);
@@ -37,7 +37,19 @@ class BallTest {
     }
 
     @Test
-    void math_메서드는_BallNumber와_position이_모두_다르다면_Nothing을_반환합니다() {
+    void match_메서드는_BallNumber가_다르고_position이_같다면_NOTHING을_반환합니다() {
+        int position = 0;
+        Ball computerBall = new Ball( new BallNumber(1), position);
+        Ball myBall = new Ball( new BallNumber(2), position);
+        GameResult expected = GameResult.NOTHING;
+
+        GameResult result = computerBall.match(myBall);
+
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void match_메서드는_BallNumber와_position이_모두_다르다면_NOTHING을_반환합니다() {
         Ball computerBall = new Ball(new BallNumber(1), 0);
         Ball myBall = new Ball(new BallNumber(2), 1);
         GameResult expected = GameResult.NOTHING;
@@ -48,7 +60,7 @@ class BallTest {
     }
 
     @Test
-    void math_메서드는_BallNumber가_같고_position이_다르다면_BALL을_반환합니다() {
+    void match_메서드는_BallNumber가_같고_position이_다르다면_BALL을_반환합니다() {
         BallNumber ballNumber = new BallNumber(1);
         Ball computerBall = new Ball(ballNumber, 0);
         Ball myBall = new Ball(ballNumber, 1);

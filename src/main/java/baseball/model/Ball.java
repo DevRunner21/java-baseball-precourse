@@ -33,15 +33,15 @@ public class Ball {
             return GameResult.STRIKE;
         }
 
-        if (ball.isDiffBallNumber(this.ballNumber) && ball.isDiffPosition(this.position)) {
-            return GameResult.NOTHING;
+        if (ball.isSameBallNumber(this.ballNumber) && ball.isDiffPosition(this.position)) {
+            return GameResult.BALL;
         }
 
-        return GameResult.BALL;
+        return GameResult.NOTHING;
     }
 
-    private boolean isDiffBallNumber(BallNumber ballNumber) {
-        return this.ballNumber != ballNumber;
+    private boolean isSameBallNumber(BallNumber ballNumber) {
+        return this.ballNumber.equals(ballNumber);
     }
 
     private boolean isDiffPosition(int position) {
