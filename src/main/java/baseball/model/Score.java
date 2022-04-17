@@ -1,5 +1,6 @@
 package baseball.model;
 
+import baseball.dto.ReadGameScoreResponse;
 import java.util.Objects;
 
 public class Score {
@@ -16,6 +17,10 @@ public class Score {
     public Score() {
         this.strikeCount = 0;
         this.ballCount = 0;
+    }
+
+    public ReadGameScoreResponse convertToReadGameScoreResponse() {
+        return new ReadGameScoreResponse(strikeCount, ballCount);
     }
 
     public Score reportScore(GameResult matchResult) {
