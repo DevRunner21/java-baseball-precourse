@@ -4,6 +4,7 @@ import baseball.dto.ReadGameScoreResponse;
 
 public class Output {
 
+    public static final String GAME_OVER_MESSAGE = "게임 종료";
     public static final String TREE_STRIKE_ANNOUNCE_MESSAGE = "3개의 숫자를 모두 맞히셨습니다! 게임종료";
     public static final String BALL_UNIT = "볼";
     public static final String STRIKE_UNIT = "스트라이크";
@@ -11,6 +12,10 @@ public class Output {
 
     public void printGameScore(ReadGameScoreResponse readGameScoreResponse) {
         System.out.println(makeScoreMessage(readGameScoreResponse));
+    }
+
+    public void printGameOverMessage() {
+        System.out.println(GAME_OVER_MESSAGE);
     }
 
     public void print3StrikeMessage() {

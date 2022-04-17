@@ -4,6 +4,7 @@ import baseball.controller.Game;
 import baseball.dto.ReadGameScoreResponse;
 import baseball.model.BallNumber;
 import baseball.model.BallNumbersGenerator;
+import baseball.model.Command;
 import baseball.view.Input;
 import baseball.view.Output;
 import java.util.List;
@@ -32,7 +33,14 @@ public class Application {
             }
 
             output.print3StrikeMessage();
-            break;
+
+            String command = input.inputGameCommand();
+            if (Command.isExitCommand(command)) {
+                output.printGameOverMessage();
+                break;
+            }
+
+            answerBallNumbers = ballNumbersGenerator.generateRandomBallNumbers();
         }
     }
 

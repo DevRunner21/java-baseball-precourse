@@ -6,9 +6,15 @@ import java.util.List;
 
 public class Input {
 
+    public static final String REQUEST_INPUT_COMMAND_MESSAGE = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
     public static final String REQUEST_INPUT_NUMBERS_MESSAGE = "숫자를 입력해주세요 : ";
     public static final String REGEX_ONLY_NUMBER = "[0-9]+";
     public static final String DELIMITER = "";
+
+    public String inputGameCommand() {
+        System.out.println(REQUEST_INPUT_COMMAND_MESSAGE);
+        return Console.readLine();
+    }
 
     public List<Integer> inputBallNumbers() {
         System.out.print(REQUEST_INPUT_NUMBERS_MESSAGE);
